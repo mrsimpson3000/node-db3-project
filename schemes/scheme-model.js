@@ -37,3 +37,12 @@ function add(scheme) {
       return findById(ids[0]);
     });
 }
+
+function update(changes, id) {
+  return db("schemes")
+    .where(({ id }))
+    .update(changes)
+    .then((id) => {
+      return findById(id);
+
+}
