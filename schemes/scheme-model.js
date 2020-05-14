@@ -29,3 +29,11 @@ function findSteps(id) {
     .join("schemes", "steps.scheme_id", "=", "schemes.id")
     .where("schemes.id", "=", id);
 }
+
+function add(scheme) {
+  return db("schemes")
+    .insert(scheme, "id")
+    .then((ids) => {
+      return findById(ids[0]);
+    });
+}
