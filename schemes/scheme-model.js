@@ -40,9 +40,13 @@ function add(scheme) {
 
 function update(changes, id) {
   return db("schemes")
-    .where(({ id }))
+    .where({ id })
     .update(changes)
     .then((id) => {
       return findById(id);
+    });
+}
 
+function remove(id) {
+  return db("schemes").where({ id }).del();
 }
